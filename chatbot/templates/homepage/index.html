@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  AI IT Support
+{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% csrf_token %}
+    <script src="{% static 'js/csrf.js' %}"></script>
+    <script src="https://kit.fontawesome.com/9054a3c1b4.js" crossorigin="anonymous"></script>
+{% endblock %}
+
+{% block content %}
+  <nav>
+    <ul>
+      <li><a href="./login">Sign in</a></li>
+      <li><a href="./chatbot">ChatBot</a></li>
+      <li><a href="./contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <h1>AI IT Support</h1>
+      <p id="subheading">Get instant support and solutions for <span id="example-text">adding a printer</span></p>
+      <div class="chatbot-free-container">
+        <div id="chat_log" class="chat-log"></div>
+        <div id="ellipsis" class="ellipsis">Ruby: <span>.</span><span>.</span><span>.</span></div>
+        <div class="search">
+          <input type="text" id="input_box" class="chat-input" minlength="10" maxlength="120" placeholder="I need help with..."required>
+          <button id="send_button" class="chat-button">Demo</button>
+        </div>
+      </div>
+      <p class="read-more">Read more below
+        <br><i class="fa-solid fa-angles-down"></i></p>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+        <h2>About</h2>
+        <p>Our AI IT Support Tool is an innovative solution for solving IT problems quickly and efficiently. Whether you're experiencing issues with software, hardware, or networking, our tool can help you find the solution you need. With a free demo on the homepage, you can experience the power of AI IT support firsthand.</p>
+        <p>Upgrade to the business version for an even more powerful AI IT support experience. With context-aware support, organization-specific troubleshooting, priority support, and more, you'll have access to faster, more tailored solutions whenever you need them. Say goodbye to long wait times on the phone with traditional support centers, and hello to fast, reliable support with our AI IT Support Tool.</p>
+    </div>
+  </section>
+
+<section id="pricing" class="pricing">
+  <div class="container">
+    <h2>Pricing</h2>
+      <div class="pricing-plans">
+        <div class="plan">
+          <h3>Free Demo</h3>
+          <p class="price">Free</p>
+          <ul>
+            <li>Access to AI IT Support on Homepage</li>
+            <li>Limited Context</li>
+            <li>No Access to Chat History</li>
+          </ul>
+          <button class="plan-button">Try Demo</button>
+        </div>
+        <div class="plan">
+          <h3>Business</h3>
+          <p class="price">$99.99/month</p>
+          <ul>
+            <li>Context-Aware Support</li>
+            <li>Organization-Specific Troubleshooting</li>
+            <li>Chat History Access</li>
+            <li>Priority Support</li>
+            <li>Customizable Settings</li>
+            <li>Up to 100 users</li>
+          </ul>
+          <button class="plan-button">Upgrade Now</button>
+        </div>
+        <div class="plan">
+          <h3>Enterprise</h3>
+          <p class="price">$499.99/month</p>
+          <ul>
+            <li>Business Plan</li>
+            <li>Chat History Database Access</li>
+            <li>Highest Priority Support</li>
+            <li>Ticketing Integration</li>
+            <li>Dedicated Server</li>
+            <li>1000+ users</li>
+          </ul>
+          <button class="plan-button">Upgrade Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Contact our sales team to learn more about our AI IT Support Tool and how it can benefit your organization. We're happy to answer any questions you may have.</p>
+      <form method="post" action="{% url 'send_email' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit">
+      </form>
+    </div>
+  </section>
+{% endblock %}
+
+{% block scripts_extra %}
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

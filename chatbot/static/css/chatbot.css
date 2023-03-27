@@ -1,0 +1,137 @@
+.sidebar {
+    margin-right: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.settings ul {
+    list-style: none;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    color: var(--text-color);
+}
+
+.settings ul li a {
+    color: var(--text-color);
+    animation-duration: 0.6s;
+}
+
+.settings ul li a:hover {
+    color: var(--primary-color);
+    animation-duration: 0.3s;
+}
+
+.chatbot-container, .chatbot-free-container {
+    margin: auto;
+    margin-top: 2em;
+    width: clamp(300px, 80vw, 800px);
+    font-family: Arial, sans-serif;
+}
+
+.chatbot-container *, .chatbot-free-container * {
+    margin-bottom: 4px;
+}
+
+.chatbot-free-container {
+    padding: 8px;
+    box-shadow: inset 4px 0 var(--primary-color);
+}
+
+#chat_log {
+    min-height: 5rem;
+    max-height: 10rem;
+    overflow-y: auto;
+    resize: none;
+    border: none;
+}
+
+.chatbot-free-container #chat_log {
+    height: 8rem;
+}
+
+#input_box {
+    width: 70%;
+    border: 1px solid var(--bg-dark);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#input_box:focus {
+    border: 1px solid var(--primary-color);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+#send_button {
+    width: 20%;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    padding: initial;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#send_button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+.chat-button {
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    border: 1px solid var(--bg-dark);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.chat-button:hover {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border-color: var(--primary-color);
+}
+
+.ellipsis {
+    display: none;
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.ellipsis span {
+    animation: ellipsis 1.5s infinite;
+}
+
+.ellipsis span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.ellipsis span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes ellipsis {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

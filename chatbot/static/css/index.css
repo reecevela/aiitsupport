@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+    --primary-color: #274fc7;
+    --secondary-color: #fff;
+    --text-color: #1a1a1a;
+    --bg-dark: #222;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.hero {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.about {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 100px 0;
+}
+    
+.about h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.contact {
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    padding: 100px 0;
+}
+
+.contact .container h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.contact .container p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.contact .container form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact .container form label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.contact .container form input,
+.contact .container form textarea {
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    background-color: #333;
+    border: 1px solid #555;
+    color: var(--secondary-color);
+}
+
+.contact .container form input[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.contact .container form input[type="submit"]:hover {
+    background-color: #1a1a1a;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.25rem;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+    }
+
+    .about p {
+        font-size: 1.25rem;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact p {
+        font-size: 1.25rem;
+    }
+
+    .contact input,
+    .contact textarea {
+        font-size: 1.25rem;
+    }
+}

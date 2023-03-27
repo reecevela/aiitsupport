@@ -1,0 +1,65 @@
+p {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+textarea {
+    width: 100%;
+    height: 5em;
+}
+
+body {
+    background-color: var(--bg-dark);
+}
+
+body * {
+    background-color: white;
+}
+
+main {
+    margin: auto;
+    margin-top: 5em;
+    margin-bottom: 5em;
+    width: clamp(300px, 70vw, 840px);
+    padding: 16px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+input[type="text"] {
+    width: 70%;
+    border: 1px solid var(--bg-dark);
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+input[type="text"]:focus {
+    border: 1px solid var(--primary-color);
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button {
+    width: 20%;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    padding: initial;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}

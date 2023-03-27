@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}AI IT Support - Reece Vela{% endblock %}</title>
+  {% load static %}
+  <!-- Include external CSS and JS files here -->
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+  {% block head_extra %}
+  {% endblock %}
+</head>
+<body>
+  <header>
+    <!-- Common header content, like a logo or navigation menu -->
+  </header>
+
+  <main>
+    {% block content %}
+    <!-- This block will be replaced by the content of child templates -->
+    {% endblock %}
+  </main>
+
+  <footer>
+    <!-- Common footer content -->
+    <p>Copyright 2023 Reece Vela</p>
+  </footer>
+
+  <!-- Include common JavaScript files here -->
+
+  {% block scripts_extra %}
+  {% endblock %}
+</body>
+</html>

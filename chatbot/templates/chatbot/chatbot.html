@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Chatbot
+{% endblock %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {% csrf_token %}
+    <script src="{% static 'js/csrf.js' %}"> </script>
+{% endblock %}
+
+{% block content %}
+    <nav>
+        <ul>
+            <li><a href="..">Home</a></li>
+            <li><a href="./settings">Settings</a></li>
+            <li><a href="../logout">Log Out</a></li>
+        </ul>
+    </nav>
+    
+    <section class="settings">
+        <ul>
+            <li><a href="./settings">Settings</a></li>
+            <li><a href="./apps">Add Apps</a></li>
+            <li><a href="./examples">Train Ruby</a></li>
+        </ul>
+    </section>
+    
+    <div class="chatbot-container">
+        <div id="chat_log" class="chat-log"></div>
+        <div id="ellipsis" class="ellipsis">Ruby: <span>.</span><span>.</span><span>.</span></div>
+        <div class="search">
+            <input type="text" id="input_box" class="chat-input">
+            <button id="send_button" class="chat-button">Send</button>
+        </div>
+        <div class="problems">
+            <button id="resolve_button" class="chat-button chat-button--disabled">Problem resolved</button>
+            <button id="new_problem_button" class="chat-button">New Problem</button>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block scripts_extra %}
+    <script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

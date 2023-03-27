@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="{% static 'css/settings.css' %}">
+{% endblock %}
+
+{% block content %}
+    <h2>Troubleshooting Examples</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <form method="post" id="add-supported-app-form">
+		{% csrf_token %}
+		{{ supported_application_form.as_p }}
+	</form>
+
+	<ul id="supported-app-list">
+		{% for supported_application in supported_applications.all %}
+			<li>{{ supported_application.name }}</li>
+		{% endfor %}
+	</ul>
+    <a href="..">Back</a>
+{% endblock %}

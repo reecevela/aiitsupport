@@ -1,0 +1,75 @@
+#example-container {
+    position: relative;
+    height: 50px;
+    overflow: hidden;
+}
+
+.example-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+}
+
+#subheading {
+    height: 3.3em;
+}
+
+.hero {
+    background-image: url('../images/filtered-hero-bkg.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.pricing {
+    padding: 2rem 0;
+    /*text-align: center;*/
+}
+
+.pricing-plans {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.plan {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.plan-button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    margin-top: auto;
+}
+
+.plan-button:hover {
+    background-color: var(--bg-dark);
+}
+
+.read-more {
+    width: 100%;
+    text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .pricing-plans {
+        flex-direction: column;
+    }
+}
