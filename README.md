@@ -13,3 +13,5 @@ In the future, I'm planning on adding automatic entry into the troubleshooting e
   
  
  Will soon be available on aiitsupport.net
+
+ALso I'll note that this is my first django project, first GPT-based project, and first fullstack project! I'm glad to see it coming together, I've been on the front-end for a while but it's really awesome to have this much freedom with my web application!
