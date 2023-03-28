@@ -14,3 +14,12 @@ Available on [https://www.aiitsupport.net](https://www.aiitsupport.net) - it's s
 In the future, I'm planning on adding automatic entry into the troubleshooting examples when a user clicks that a problem has been resolved, so that it learns by itself. It will also need automatic database cleanup functionality, but for now this is just in the MVP stage and I'll be adding many more features on the official site.
 
 Also I'll note that this is my first django project, first GPT-based project, and first fullstack project! I'm glad to see it coming together, I've been on the front-end for a while but it's really awesome to have this much freedom with my app!
+
+A few of the things I learned while making this:
+ - Vim
+ - Django
+ - Postgres and how databases work
+ - SSH much more in-depth
+ - Gunicorn
+ - Nginx
+ - Setting up SSL
