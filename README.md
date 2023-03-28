@@ -1,5 +1,7 @@
 # aiitsupport
 GPT-Based IT Support that utilizes context and previous examples, mostly just learning how to use GPT-3.5-turbo and feed it information to help it be a better problem solver for businesses.
+
+Available on [https://www.aiitsupport.net](https://www.aiitsupport.net) - it's still under development so report any issues here or in the contact section on the homepage - I'll get your email.
  
  I've removed a lot of the core functionality and personal info, but overall what it does is:
  
@@ -10,8 +12,5 @@ GPT-Based IT Support that utilizes context and previous examples, mostly just le
    - With the ability for users to add their own troubleshooting examples, it can support applications that are more recent than OpenAI's model's info (~2021) and can also support custom in-house applications.
    
 In the future, I'm planning on adding automatic entry into the troubleshooting examples when a user clicks that a problem has been resolved, so that it learns by itself. It will also need automatic database cleanup functionality, but for now this is just in the MVP stage and I'll be adding many more features on the official site.
-  
- 
- Will soon be available on aiitsupport.net
 
 Also I'll note that this is my first django project, first GPT-based project, and first fullstack project! I'm glad to see it coming together, I've been on the front-end for a while but it's really awesome to have this much freedom with my app!
