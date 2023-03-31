@@ -21,21 +21,22 @@ class ChatBot:
         self.user_settings = user_settings
         self.model = "gpt-3.5-turbo"  # gpt-3.5-turbo
         self.history = [
-            {"role": "system", "content": "You are a helpful IT Support assistant named Ruby, answer as concisely as possible."},
+                {"role": "system", "content": "You're Ruby, friendly helpful IT assistant, answer concisely and with natural language, in sentences"},
         ]
 
         if user_settings:
             if user_settings.organization_name:
-                self.history.append({"role": "system", "content": f"Organization: {user_settings.organization_name}"})
+                self.history.append({"role": "system", "content": f"Org: {user_settings.organization_name}"})
             if user_settings.elevated_support_phone_number:
-                self.history.append({"role": "system", "content": f"Elevated support number: {user_settings.elevated_support_phone_number}"})
+                self.history.append({"role": "system", "content": f"IT No.: {user_settings.elevated_support_phone_number}"})
             if user_settings.primary_os:
-                self.history.append({"role": "system", "content": f"Primary OS: {user_settings.primary_os}"})
+                self.history.append({"role": "system", "content": f"OS: {user_settings.primary_os}"})
 
             supported_applications = SupportedApplication.objects.filter(user_settings=user_settings)
             if supported_applications:
                 app_names = ', '.join([app.name for app in supported_applications])
-                self.history.append({"role": "system", "content": f"Supported applications: {app_names}"})
+                self.history.append({"role": "system", "content": f"Apps: {app_names}"})
+    
 
     def process_input(self, user_input):
         # Add user input to the conversation history
@@ -51,7 +52,7 @@ class ChatBot:
             for app in mentioned_applications:
                 examples = TroubleshootingExample.objects.filter(application=app)
                 for example in examples:
-                    self.history.append({"role": "assistant", "content": f"Issue: {example.issue_description} - Resolution: {example.resolution_process}"})
+                    self.history.append({"role": "assistant", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
 
         api_response = openai.ChatCompletion.create(
             model=self.model,

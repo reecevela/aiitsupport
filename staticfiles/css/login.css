@@ -1,0 +1,36 @@
+html, body {
+    overflow: hidden;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/filtered-hero-bkg.png');
+    background-position: center;
+    background-size: cover;
+}
+
+.login-container {
+    background-color: var(--secondary-color);
+    padding: 5vh 5vw;
+    border-radius: 8px;
+}
+
+button:hover {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+button {
+    background-color: var(--bg-dark);
+    color: var(--secondary-color);
+    border: 1px solid var(--bg-dark);
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    padding: 6px 12px;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-left: auto;
+}

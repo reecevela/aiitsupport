@@ -26,4 +26,4 @@ class TroubleshootingExample(models.Model):
     resolution_process = models.TextField()
 
     def __str__(self):
-        return f"Issue: {self.issue_description} In:{self.application.name} Resolved by: {self.issue_description}"
+        return f"Issue: {self.issue_description} In:{self.application.name} Resolved by: {self.resolution_process}"
