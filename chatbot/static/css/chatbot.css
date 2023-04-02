@@ -42,7 +42,7 @@
 
 #chat_log {
     min-height: 5rem;
-    max-height: 10rem;
+    max-height: 25rem;
     overflow-y: auto;
     resize: none;
     border: none;
