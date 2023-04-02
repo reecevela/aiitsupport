@@ -51,7 +51,7 @@ class ChatBot:
 
         if mentioned_applications:
             for app in mentioned_applications:
-                self.history.append({"role": "user", "content": f"Here's some documentation for {app}"})
+                self.history.append({"role": "user", "content": f"Here's some tickets from our documentation for {app}"})
                 examples = TroubleshootingExample.objects.filter(application=app)
                 for example in examples:
                     self.history.append({"role": "user", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
