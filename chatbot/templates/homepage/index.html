@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {% csrf_token %}
-    <script src="{% static 'js/csrf.js' %}"></script>
+    <script>
+	var csrftoken = '{{ csrf_token }}';
+    </script>
     <script src="https://kit.fontawesome.com/9054a3c1b4.js" crossorigin="anonymous"></script>
 {% endblock %}
 
@@ -26,8 +27,8 @@
   <section class="hero">
     <div class="container">
       <h1>AI IT Support</h1>
-      <p id="subheading">Get instant support and solutions for <span id="example-text">adding a printer</span></p>
-      <div class="chatbot-free-container">
+      <p id="subheading">Coming back soon and better than ever to help with: <span id="example-text">adding a printer</span></p>
+      <div style="display:none" class="chatbot-free-container">
         <div id="chat_log" class="chat-log"></div>
         <div id="ellipsis" class="ellipsis">Ruby: <span>.</span><span>.</span><span>.</span></div>
         <div class="search">

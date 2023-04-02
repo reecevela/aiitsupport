@@ -6,6 +6,7 @@ app_name = 'chatbot'
 urlpatterns = [
     path('', views.chatbot, name='chatbot'),
     path('api/', views.api_chatbot, name='api_chatbot'),
+    path('free_api/', views.api_free_chatbot, name='api_free_chatbot'),
     path('settings/', views.settings, name='settings'),
     path('examples/', views.add_troubleshooting_example, name='add_troubleshooting_example'),
     path('apps/', views.add_supported_application, name='add_supported_application'),

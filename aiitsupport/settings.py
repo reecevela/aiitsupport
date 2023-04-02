@@ -33,10 +33,11 @@ EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']  # Your email password
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    'www.aiitsupport.net'
+    'www.aiitsupport.net',
+    'aiitsupport.net'
 ]
 
 

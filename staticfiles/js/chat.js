@@ -19,9 +19,14 @@ function sendMessage() {
     appendToChatLog('You: ' + user_input);
 
     $('#ellipsis').show(); // Show the ellipsis effect
-
+	
+    let api_endpoint = '/chatbot/api/';
+    if (window.location.href === 'https://www.aiitsupport.net/') {
+        api_endpoint = '/api/free_chatbot/';
+    }
+	
     $.ajax({
-        url: '/chatbot/api/',
+        url: api_endpoint,
         type: 'POST',
         headers: {
             'X-CSRFToken': csrftoken
@@ -64,5 +69,7 @@ $('#resolve_button').on('click', function() {
 $('#new_problem_button').on('click', function() {
     // Handle the "new problem" button click
 });
+
+appendToChatLog('Ruby: Hi, how may I help you today?');
 
 appendToChatLog('Ruby: Hi, how may I help you today?');

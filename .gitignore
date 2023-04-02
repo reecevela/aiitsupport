@@ -111,6 +111,9 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# Logs
+chatbot_logs.txt
+
 # Environments
 .env
 .venv
