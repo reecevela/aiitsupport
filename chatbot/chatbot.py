@@ -19,12 +19,13 @@ openai.api_key = settings.OPENAI_API_KEY
 class ChatBot:
     def __init__(self, user_settings=None):
         self.user_settings = user_settings
-        self.model = "gpt-3.5-turbo"  # gpt-3.5-turbo
+        self.model = "gpt-4"  # gpt-3.5-turbo or gpt-4
         self.history = [
                 {"role": "system", "content": "You're Ruby, friendly helpful IT assistant, answer concisely and with natural language, in sentences"},
         ]
 
         if user_settings:
+            self.history.append({"role": "system", "content": f"Here's the organization info:"})
             if user_settings.organization_name:
                 self.history.append({"role": "system", "content": f"Org: {user_settings.organization_name}"})
             if user_settings.elevated_support_phone_number:
@@ -35,7 +36,7 @@ class ChatBot:
             supported_applications = SupportedApplication.objects.filter(user_settings=user_settings)
             if supported_applications:
                 app_names = ', '.join([app.name for app in supported_applications])
-                self.history.append({"role": "system", "content": f"Apps: {app_names}"})
+                self.history.append({"role": "system", "content": f"Supported Apps: {app_names}"})
     
 
     def process_input(self, user_input):
@@ -50,9 +51,10 @@ class ChatBot:
 
         if mentioned_applications:
             for app in mentioned_applications:
+                self.history.append({"role": "user", "content": f"Here's some documentation for {app}"})
                 examples = TroubleshootingExample.objects.filter(application=app)
                 for example in examples:
-                    self.history.append({"role": "assistant", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
+                    self.history.append({"role": "user", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
 
         api_response = openai.ChatCompletion.create(
             model=self.model,
