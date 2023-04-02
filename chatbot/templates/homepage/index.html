@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {% csrf_token %}
-    <script src="{% static 'js/csrf.js' %}"></script>
+    <script>
+	var csrftoken = '{{ csrf_token }}';
+    </script>
     <script src="https://kit.fontawesome.com/9054a3c1b4.js" crossorigin="anonymous"></script>
 {% endblock %}
 

@@ -8,8 +8,9 @@
 {% block head_extra %}
     <link rel="stylesheet" href="{% static 'css/chatbot.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {% csrf_token %}
-    <script src="{% static 'js/csrf.js' %}"> </script>
+    <script>
+	var csrftoken = '{{ csrf_token }}';
+    </script>
 {% endblock %}
 
 {% block content %}

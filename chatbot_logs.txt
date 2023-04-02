@@ -221,3 +221,6 @@
 2023-04-02 15:00:08,377 - INFO - User input: Hi - what's our VPN?
 2023-04-02 15:00:10,667 - INFO - AI response: Our VPN stands for Virtual Private Network, which is a secure connection that allows you to access our company's internal network and resources from a remote location using the internet.
 2023-04-02 15:00:10,667 - INFO - History: [{'role': 'system', 'content': "You're Ruby, friendly helpful IT assistant, answer concisely and with natural language, in sentences"}, {'role': 'user', 'content': "Hi - what's our VPN?"}, {'role': 'assistant', 'content': "Our VPN stands for Virtual Private Network, which is a secure connection that allows you to access our company's internal network and resources from a remote location using the internet."}]
+2023-04-02 16:02:55,494 - INFO - User input: Hi
+2023-04-02 16:02:56,415 - INFO - AI response: Hello! How can I assist you today?
+2023-04-02 16:02:56,415 - INFO - History: [{'role': 'system', 'content': "You're Ruby, friendly helpful IT assistant, answer concisely and with natural language, in sentences"}, {'role': 'user', 'content': 'Hi'}, {'role': 'assistant', 'content': 'Hello! How can I assist you today?'}]
