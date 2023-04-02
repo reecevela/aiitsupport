@@ -29,8 +29,9 @@ free_chatbot_instance = ChatBotFree()
 def api_free_chatbot(request):
     if request.method == "POST":
         user_input = request.POST.get('user_input')
+        print('Received User input: ', user_input)
         chat_response = free_chatbot_instance.process_input(user_input)
-
+        print('Generated Response: ', chat_response)
         return JsonResponse({
             'response': chat_response,
         })
