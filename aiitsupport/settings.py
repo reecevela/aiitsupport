@@ -36,7 +36,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'www.aiitsupport.net'
+    'www.aiitsupport.net',
+    'aiitsupport.net'
 ]
 
 
