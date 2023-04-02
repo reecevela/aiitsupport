@@ -40,8 +40,6 @@ class ChatBot:
     
 
     def process_input(self, user_input):
-        # Add user input to the conversation history
-        self.history.append({"role": "user", "content": user_input})
         logger.info(f"User input: {user_input}")
 
         supported_applications = SupportedApplication.objects.filter(user_settings=self.user_settings)
@@ -55,6 +53,9 @@ class ChatBot:
                 examples = TroubleshootingExample.objects.filter(application=app)
                 for example in examples:
                     self.history.append({"role": "system", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
+
+        # Add user input to the conversation history
+        self.history.append({"role": "user", "content": user_input})
 
         api_response = openai.ChatCompletion.create(
             model=self.model,
