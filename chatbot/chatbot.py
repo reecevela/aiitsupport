@@ -19,7 +19,7 @@ openai.api_key = settings.OPENAI_API_KEY
 class ChatBot:
     def __init__(self, user_settings=None):
         self.user_settings = user_settings
-        self.model = "gpt-4"  # gpt-3.5-turbo or gpt-4
+        self.model = "gpt-3.5-turbo"  # gpt-3.5-turbo or gpt-4
         self.history = [
                 {"role": "system", "content": "You're Ruby, friendly helpful IT assistant, answer concisely and with natural language, in sentences"},
         ]
