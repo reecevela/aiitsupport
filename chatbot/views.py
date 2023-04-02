@@ -29,15 +29,16 @@ free_chatbot_instance = ChatBotFree()
 def api_free_chatbot(request):
     if request.method == "POST":
         user_input = request.POST.get('user_input')
-        print('Received User input: ', user_input)
         chat_response = free_chatbot_instance.process_input(user_input)
-        print('Generated Response: ', chat_response)
-        return JsonResponse({
-            'response': chat_response,
-        })
+       
+        if chat_response:
+            return JsonResponse({
+                'response': chat_response,
+            })
+        else:
+            return JsonResponse({'error': 'An unexpected error occurred.'}, status=500)
     else:
         return HttpResponseForbidden("Invalid request method.")
-
 
 def home(request):
     return render(request, 'homepage/index.html')
@@ -67,29 +68,6 @@ def api_chatbot(request):
         'response': chat_response,
     })
 
-
-@login_required
-def settings(request):
-    user_settings, _ = UserSettings.objects.get_or_create(user=request.user)
-
-    if request.method == 'POST':
-        form = UserSettingsForm(request.POST, instance=user_settings)
-        if form.is_valid():
-            # Save the user's other settings
-            user_settings = form.save(commit=False)
-            user_settings.save()
-            
-            # Update the supported applications list
-            new_app = request.POST.get('new_app', '').strip()
-            if new_app:
-                user_settings.supported_applications.append(new_app)
-                user_settings.save()
-            
-            return redirect('chatbot:chatbot')
-    else:
-        form = UserSettingsForm(instance=user_settings)
-
-    return render(request, 'chatbot/settings.html', {'form': form})
 
 
 @login_required
