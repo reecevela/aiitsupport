@@ -64,12 +64,13 @@ $('#input_box').on('keypress', function(e) {
 
 $('#resolve_button').on('click', function() {
     // Handle the "resolve" button click
+    // more functionality will be added in the future, here's where self-learning will be implemented
+    location.reload();
 });
 
 $('#new_problem_button').on('click', function() {
     // Handle the "new problem" button click
+    location.reload();
 });
-
-appendToChatLog('Ruby: Hi, how may I help you today?');
 
 appendToChatLog('Ruby: Hi, how may I help you today?');
