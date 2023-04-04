@@ -24,6 +24,11 @@ function sendMessage() {
     if (window.location.href === 'https://www.aiitsupport.net/') {
         api_endpoint = '/api/free_chatbot/';
     }
+
+    // Get the conversation history from the chat log
+    let conversation_history = $('#chat_log').children().map(function() {
+        return $(this).text();
+    }).get();
 	
     $.ajax({
         url: api_endpoint,
@@ -33,6 +38,7 @@ function sendMessage() {
         },
         data: {
             'user_input': user_input,
+            'conversation_history': JSON.stringify(conversation_history),
         },
         success: function (data) {
             $('#ellipsis').hide(); // Hide the ellipsis effect

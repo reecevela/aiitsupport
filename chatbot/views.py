@@ -7,6 +7,8 @@ from .models import UserSettings, SupportedApplication, TroubleshootingExample
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
+import json
+
 
 @csrf_exempt
 def send_email(request):
@@ -60,14 +62,35 @@ def api_chatbot(request):
         return HttpResponseForbidden("You must be logged in to use the chatbot.")
 
     user_input = request.POST.get('user_input')
+    conversation_history_raw = request.POST.get('conversation_history')
+    
+    # Check if conversation_history_raw is None and set it to an empty list if necessary
+    conversation_history = json.loads(conversation_history_raw) if conversation_history_raw else []
+
     user_settings, _ = UserSettings.objects.get_or_create(user=request.user)
     chatbot_instance = ChatBot(user_settings)
+
+    # Set the conversation history
+    chatbot_instance.history = conversation_history_to_chatbot_format(conversation_history)
+
     chat_response = chatbot_instance.process_input(user_input)
 
     return JsonResponse({
         'response': chat_response,
     })
 
+def conversation_history_to_chatbot_format(conversation_history):
+    chatbot_history = []
+
+    for message in conversation_history:
+        role, content = message.split(': ', 1)
+
+        if role == 'You':
+            chatbot_history.append({"role": "user", "content": content})
+        elif role == 'Ruby':
+            chatbot_history.append({"role": "assistant", "content": content})
+
+    return chatbot_history
 
 
 @login_required
