@@ -105,6 +105,19 @@
     border-color: var(--primary-color);
 }
 
+pre {
+    background-color: var(--bg-dark);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+code {
+    white-space: pre-wrap;
+    font-family: monospace;
+    color: var(--secondary-color)
+}
+
+
 .ellipsis {
     display: none;
     margin-top: 1rem;

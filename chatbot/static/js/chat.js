@@ -5,6 +5,9 @@ function appendToChatLog(message) {
         message = message.replace(/(\d+\.)\s?/g, '<br>$1 ');
     }
 
+    // Wrap text between triple backticks with <code> elements
+    message = message.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
     // Append the formatted message to the chat log
     $('#chat_log').append('<div>' + message + '</div>');
     // Scroll to the bottom of the chat log
