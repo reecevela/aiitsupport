@@ -1,18 +1,29 @@
 function appendToChatLog(message) {
+    // Extract code blocks and replace with placeholders
+    const codeBlocks = [];
+    message = message.replace(/```([\s\S]*?)```/g, function(match, code) {
+        const placeholder = `%%%CODE_BLOCK_${codeBlocks.length}%%%`;
+        codeBlocks.push(code);
+        return placeholder;
+    });
+
     // Check if the message contains a numbered list
     if (/\d+\./.test(message)) {
         // Replace the numbered list with new lines
         message = message.replace(/(\d+\.)\s?/g, '<br>$1 ');
     }
 
-    // Wrap text between triple backticks with <code> elements
-    message = message.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+    // Replace placeholders with the original code blocks
+    message = message.replace(/%%%CODE_BLOCK_(\d+)%%%/g, function(match, index) {
+        return `<pre><code>${codeBlocks[index]}</code></pre>`;
+    });
 
     // Append the formatted message to the chat log
     $('#chat_log').append('<div>' + message + '</div>');
     // Scroll to the bottom of the chat log
     $('#chat_log').scrollTop($('#chat_log')[0].scrollHeight);
 }
+
 
 
 function sendMessage() {

@@ -237,3 +237,38 @@ In this program, we define a function `isEvenOrOdd` that takes a number as an ar
 
 We then test the function by calling it with two different number arguments using the `console.log()` method to print the result to the console.
 2023-04-04 01:04:09,257 - INFO - History: [{'role': 'assistant', 'content': 'Hi, how may I help you today?'}, {'role': 'user', 'content': 'Write a JS even/odd program'}, {'role': 'user', 'content': 'Write a JS even/odd program'}, {'role': 'assistant', 'content': "Sure! Here's a simple program in JavaScript that determines if a number is even or odd:\n\n```\n// Function to check if a number is even or odd\nfunction isEvenOrOdd(num) {\n  if (num % 2 === 0) {\n    return 'even';\n  } else {\n    return 'odd';\n  }\n}\n\n// Testing the function\nconsole.log(isEvenOrOdd(5)); // Output: odd\nconsole.log(isEvenOrOdd(8)); // Output: even\n```\n\nIn this program, we define a function `isEvenOrOdd` that takes a number as an argument. The function checks whether the number is even or odd by using the modulo operator `%` to check if the number is divisible by 2 with no remainder. If it is, then the function returns the string 'even'; if not, it returns the string 'odd'.\n\nWe then test the function by calling it with two different number arguments using the `console.log()` method to print the result to the console."}]
+2023-04-05 00:47:20,611 - INFO - User input: Write a short powershell script that connects to the graph api and creates a word document
+2023-04-05 00:47:32,729 - INFO - AI response: Sure, here's a PowerShell script that connects to the Microsoft Graph API and creates a new Word document: 
+
+```
+# Import required modules for Microsoft Graph API Authentication
+Import-Module AzureAD
+Import-Module MSOnline
+
+# Set Graph API endpoint URL
+$graphApiUri = 'https://graph.microsoft.com/v1.0/'
+
+# Authenticate with a user in Azure AD
+Connect-AzureAD
+
+# Get the access token for the Graph API
+$accessToken = (Get-AzureADAccessToken -ResourceId $graphApiUri).AccessToken
+
+# Create a new Word document
+$newDocument = @{
+    "displayName" = "My New Document"
+    "fileSystemInfo" = @{
+        "createdDateTime" = (Get-Date).ToString("o")
+        "lastModifiedDateTime" = (Get-Date).ToString("o")
+    }
+}
+
+$newDocumentJson = $newDocument | ConvertTo-Json
+
+$wordDocument = Invoke-RestMethod -Uri "$graphApiUri/drive/root/children" -Headers @{ Authorization = "Bearer $accessToken" } -Method Post -Body $newDocumentJson -ContentType "application/json"
+
+Write-Output "Created new Word document '$($wordDocument.name)' with ID $($wordDocument.id)."
+```
+
+Note: This script assumes that you have already set up authentication with Azure AD and have the required modules installed. You will also need to have the appropriate permissions in your Microsoft Graph API app to create Word document.
+2023-04-05 00:47:32,729 - INFO - History: [{'role': 'assistant', 'content': 'Hi, how may I help you today?'}, {'role': 'user', 'content': 'Write a short powershell script that connects to the graph api and creates a word document'}, {'role': 'user', 'content': 'Write a short powershell script that connects to the graph api and creates a word document'}, {'role': 'assistant', 'content': 'Sure, here\'s a PowerShell script that connects to the Microsoft Graph API and creates a new Word document: \n\n```\n# Import required modules for Microsoft Graph API Authentication\nImport-Module AzureAD\nImport-Module MSOnline\n\n# Set Graph API endpoint URL\n$graphApiUri = \'https://graph.microsoft.com/v1.0/\'\n\n# Authenticate with a user in Azure AD\nConnect-AzureAD\n\n# Get the access token for the Graph API\n$accessToken = (Get-AzureADAccessToken -ResourceId $graphApiUri).AccessToken\n\n# Create a new Word document\n$newDocument = @{\n    "displayName" = "My New Document"\n    "fileSystemInfo" = @{\n        "createdDateTime" = (Get-Date).ToString("o")\n        "lastModifiedDateTime" = (Get-Date).ToString("o")\n    }\n}\n\n$newDocumentJson = $newDocument | ConvertTo-Json\n\n$wordDocument = Invoke-RestMethod -Uri "$graphApiUri/drive/root/children" -Headers @{ Authorization = "Bearer $accessToken" } -Method Post -Body $newDocumentJson -ContentType "application/json"\n\nWrite-Output "Created new Word document \'$($wordDocument.name)\' with ID $($wordDocument.id)."\n```\n\nNote: This script assumes that you have already set up authentication with Azure AD and have the required modules installed. You will also need to have the appropriate permissions in your Microsoft Graph API app to create Word document.'}]
