@@ -45,6 +45,9 @@ def api_free_chatbot(request):
 def home(request):
     return render(request, 'homepage/index.html')
 
+def privacy(request):
+    return render(request, 'homepage/privacy_policy.html')
+
 @login_required
 def chatbot(request):
     user_settings, _ = UserSettings.objects.get_or_create(user=request.user)

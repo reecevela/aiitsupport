@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
-from chatbot.views import home, api_free_chatbot, send_email
+from chatbot.views import home, api_free_chatbot, send_email, privacy
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', home),
     path('contact', home),
+    path('privacy', privacy),
     path('admin/', admin.site.urls),
     path('send_email/', send_email, name='send_email'),
     path('chatbot/', include('chatbot.urls', namespace='chatbot')),
