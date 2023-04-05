@@ -19,6 +19,9 @@ html, body {
     line-height: 1.6;
 }
 
+main {
+	min-height: 90vh;
+}
 nav {
     background-color: var(--bg-dark);
     color: var(--secondary-color);

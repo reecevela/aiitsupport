@@ -4,6 +4,10 @@
     overflow: hidden;
 }
 
+.disabled {
+    color: lightgray;
+}
+
 .example-text {
     position: absolute;
     top: 0;
