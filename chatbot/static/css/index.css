@@ -19,6 +19,10 @@ html, body {
     line-height: 1.6;
 }
 
+main {
+    min-height: 90vh;
+}
+
 nav {
     background-color: var(--bg-dark);
     color: var(--secondary-color);
@@ -141,7 +145,6 @@ nav a:hover {
 }
 
 footer {
-    margin-top: 3em!important;
     display: flex;
     justify-content: center;
     margin: auto;
