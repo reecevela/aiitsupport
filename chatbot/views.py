@@ -46,7 +46,11 @@ def home(request):
     return render(request, 'homepage/index.html')
 
 def privacy(request):
+<<<<<<< HEAD
     return render(request, 'homepage/privacy_policy.html')
+=======
+    return render(request, 'homepage/index.html')
+>>>>>>> 1bcf9083542d3c75a1146163bf48ec14909c18f3
 
 @login_required
 def chatbot(request):

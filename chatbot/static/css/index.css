@@ -20,9 +20,14 @@ html, body {
 }
 
 main {
+<<<<<<< HEAD
     min-height: 90vh;
 }
 
+=======
+	min-height: 90vh;
+}
+>>>>>>> 1bcf9083542d3c75a1146163bf48ec14909c18f3
 nav {
     background-color: var(--bg-dark);
     color: var(--secondary-color);

@@ -5,6 +5,7 @@ __pycache__/
 
 # staticfiles
 staticfiles/
+chatbot_logs
 
 # C extensions
 *.so
