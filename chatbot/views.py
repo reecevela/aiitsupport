@@ -46,11 +46,7 @@ def home(request):
     return render(request, 'homepage/index.html')
 
 def privacy(request):
-<<<<<<< HEAD
     return render(request, 'homepage/privacy_policy.html')
-=======
-    return render(request, 'homepage/index.html')
->>>>>>> 1bcf9083542d3c75a1146163bf48ec14909c18f3
 
 @login_required
 def chatbot(request):
@@ -77,8 +73,9 @@ def api_chatbot(request):
     user_settings, _ = UserSettings.objects.get_or_create(user=request.user)
     chatbot_instance = ChatBot(user_settings)
 
-    # Set the conversation history
-    chatbot_instance.history = conversation_history_to_chatbot_format(conversation_history)
+    # Set the conversation history and include organization settings
+    chatbot_history = conversation_history_to_chatbot_format(conversation_history)
+    chatbot_instance.history.extend(chatbot_history)
 
     chat_response = chatbot_instance.process_input(user_input)
 

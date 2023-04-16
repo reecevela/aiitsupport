@@ -20,8 +20,9 @@ html, body {
 }
 
 main {
-	min-height: 90vh;
+    min-height: 90vh;
 }
+
 nav {
     background-color: var(--bg-dark);
     color: var(--secondary-color);
@@ -90,12 +91,12 @@ nav a:hover {
 }
 
 .contact .container h2 {
-    font-size: 3rem;
+    font-size: 3em;
     margin-bottom: 20px;
 }
 
 .contact .container p {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     margin-bottom: 40px;
 }
 
@@ -107,14 +108,14 @@ nav a:hover {
 }
 
 .contact .container form label {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     margin-bottom: 10px;
 }
 
 .contact .container form input,
 .contact .container form textarea {
     padding: 10px;
-    font-size: 1.5rem;
+    font-size: 1.5em;
     margin-bottom: 20px;
     background-color: #333;
     border: 1px solid #555;

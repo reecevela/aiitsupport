@@ -25,6 +25,7 @@ function appendToChatLog(message) {
 }
 
 
+
 function sendMessage() {
     let user_input = $('#input_box').val();
     if (!user_input) return;
