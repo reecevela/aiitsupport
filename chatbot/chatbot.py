@@ -48,11 +48,13 @@ class ChatBot:
         mentioned_applications = [app for app in supported_applications if app.name.lower() in user_input.lower()]
 
         if mentioned_applications:
+            self.history.append({"role": "user", "content": f"Here's some tickets from our documentation. I have not looked at these and cannot look at these. Use them to help answer my question when I ask it."})
             for app in mentioned_applications:
-                self.history.append({"role": "user", "content": f"Here's some tickets from our documentation for {app}. I did not look at these and cannot look at these. Use them to help answer my question when I ask it"})
+                self.history.append({"role":"user", "content": f"App: {app}"})
                 examples = TroubleshootingExample.objects.filter(application=app)
                 for example in examples:
                     self.history.append({"role": "user", "content": f"Issue: {example.issue_description} Fix: {example.resolution_process}"})
+            self.history.append({"role":"user", "content": "That's all the tickets."})
 
         # Add user input to the conversation history
         self.history.append({"role": "user", "content": user_input})
@@ -64,7 +66,7 @@ class ChatBot:
 
         chat_response = api_response["choices"][0]["message"]["content"]
 
-        # Add AI response to the conversation history
+        # Add AI response to the conversation history, only for logging purposes
         self.history.append({"role": "assistant", "content": chat_response})
         logger.info(f"AI response: {chat_response}")
         logger.info(f"History: {self.history}")
