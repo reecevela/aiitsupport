@@ -97,18 +97,19 @@
     <div class="container">
       <h2>Contact</h2>
       <p>Contact our sales team to learn more about our AI IT Support Tool and how it can benefit your organization. We're happy to answer any questions you may have.</p>
-      <form method="post" action="{% url 'send_email' %}">
-        {% csrf_token %}
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <input type="submit">
+      <form
+        action="https://formspree.io/f/xwkjwjqb"
+        method="POST"
+      >
+        <label for="email">
+          Your email:
+        </label>
+          <input type="email" name="email">
+        <label for="message">
+          Your message:
+        </label>
+        <textarea name="message"></textarea>
+        <button type="submit">Send</button>
       </form>
     </div>
   </section>
