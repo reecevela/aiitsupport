@@ -1,3 +1,5 @@
+const GREETING = 'Hi, how may I help you today?';
+
 function appendToChatLog(message) {
     // Extract code blocks and replace with placeholders
     const codeBlocks = [];
@@ -57,8 +59,6 @@ function sendMessage() {
         success: function (data) {
             $('#ellipsis').hide(); // Hide the ellipsis effect
             appendToChatLog('Ruby: ' + data.response);
-            $('#resolve_button').prop('disabled', !data.resolve_enabled);
-            $('#new_problem_button').prop('disabled', !data.new_problem_enabled);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             $('#ellipsis').hide(); // Hide the ellipsis effect
@@ -73,6 +73,10 @@ function sendMessage() {
     $('#input_box').val('');
 }
 
+function clearChatLog() {
+    $('#chat_log').empty();
+}
+
 $('#send_button').on('click', sendMessage);
 $('#input_box').on('keypress', function(e) {
     if (e.which === 13) {
@@ -84,8 +88,8 @@ $('#input_box').on('keypress', function(e) {
 
 $('#resolve_button').on('click', function() {
     // Handle the "resolve" button click
-    // more functionality will be added in the future, here's where self-learning will be implemented
-    location.reload();
+    clearChatLog();
+    appendToChatLog('Ruby: ' + GREETING);
 });
 
 $('#new_problem_button').on('click', function() {
@@ -93,4 +97,4 @@ $('#new_problem_button').on('click', function() {
     location.reload();
 });
 
-appendToChatLog('Ruby: Hi, how may I help you today?');
+appendToChatLog('Ruby: ' + GREETING);

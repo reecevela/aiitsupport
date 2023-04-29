@@ -84,8 +84,12 @@ $('#input_box').on('keypress', function(e) {
 
 $('#resolve_button').on('click', function() {
     // Handle the "resolve" button click
-    // more functionality will be added in the future, here's where self-learning will be implemented
-    location.reload();
+    // Get the first line of the chat log
+    let first_line = $('#chat_log').children().first().text();
+    // Clear the chat log
+    $('#chat_log').empty();
+    // Append the first line to the chat log
+    appendToChatLog(first_line);
 });
 
 $('#new_problem_button').on('click', function() {
