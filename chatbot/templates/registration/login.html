@@ -12,6 +12,11 @@
           {% csrf_token %}
           {{ form.as_p }}
           <button type="submit">Login</button>
+          <button id="bypass">BYPASS LOGIN</button>
         </form>
     </section>
+{% endblock %}
+
+{% block scripts_extra %}
+    <script src="{% static 'js/login.js' %}"></script>
 {% endblock %}
