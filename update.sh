@@ -7,3 +7,5 @@ python manage.py collectstatic
 
 sudo systemctl restart gunicorn
 sudo systemctl restart nginx
+
+chmod +x update.sh
