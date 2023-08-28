@@ -17,8 +17,8 @@ Also I'll note that this is my first django project, first GPT-based project, an
 A few of the things I learned while making this:
  - Vim
  - Django
- - Postgres and how databases work
+ - More in-depth knowledge of Postgres
  - SSH much more in-depth
  - Gunicorn
  - Nginx
- - Setting up SSL
+ - Setting up SSL on a remote server
